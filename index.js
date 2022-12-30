@@ -119,5 +119,5 @@ app.get('/account/all', function (req, res) {
 });
 
 let port = process.env.PORT || 3000;
-app.listen(port);
+app.listen(process.env.PORT || 3000);
 console.log('Running on port: ' + port);
