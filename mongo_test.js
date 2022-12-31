@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = process.env.PORT || 'mongodb://localhost:27017';
+const url = process.env || 'mongodb://localhost:27017';
  
 // connect to mongo
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
