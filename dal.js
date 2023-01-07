@@ -1,14 +1,28 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
+//const url = 'mongodb://localhost:27017';
 let db = null;
+require('dotenv').config();
+var url = process.env.DB_URI;
 
 // connect to mongo
-MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
-    console.log("Connected successfully to db server");
+//MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
+    //console.log("Connected successfully to db server");
+
+    function connectToDB () {
+        return new Promise((resolve) => {
+          const url = process.env.DB_URI
+          MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
+            if (err) console.error(err)
+            console.log('Connected successfully to db server')
+            db = client.db('myproject')
+            resolve()
+          })
+        })
+      };
 
     // connect to myproject database
-    db = client.db('myproject');
-});
+    //db = client.db('myproject');
+//});
 
 // create user account using the collection.insertOne function
 function create(name, email, password) {

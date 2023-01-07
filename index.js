@@ -118,6 +118,14 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-let port = process.env.PORT || 3000;
-app.listen(process.env.PORT || 3000);
-console.log('Running on port: ' + port);
+//let port = process.env.PORT || 3000;
+//app.listen(process.env.PORT || 3000);
+//console.log('Running on port: ' + port);
+
+const init = async () => {
+    await dal.connectToDB()
+    const port = process.env.PORT || 3000
+    app.listen(port)
+    console.log('Running on port: ' + port)
+  }
+  init()
