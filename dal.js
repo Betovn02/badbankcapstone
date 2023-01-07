@@ -8,17 +8,17 @@ var url = process.env.DB_URI;
 //MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
     //console.log("Connected successfully to db server");
 
-    function connectToDB () {
-        return new Promise((resolve) => {
-          const url = process.env.DB_URI
-          MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
-            if (err) console.error(err)
-            console.log('Connected successfully to db server')
-            db = client.db('myproject')
-            resolve()
-          })
-        })
-      };
+function connectToDB () {
+  return new Promise((resolve) => {
+    const url = process.env.DB_URI
+    MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
+      if (err) console.error(err)
+      console.log('Connected successfully to db server')
+      db = client.db('myproject')
+      resolve()
+    })
+  })
+};    
 
     // connect to myproject database
     //db = client.db('myproject');
