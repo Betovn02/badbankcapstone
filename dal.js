@@ -91,3 +91,9 @@ function all() {
 
 
 module.exports = { create, findOne, find, update, all };
+exports.connectToDB = connectToDB;
+module.exports = dal.js
+module.exports = {
+    connectDb,
+    
+};
