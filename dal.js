@@ -5,24 +5,12 @@ require('dotenv').config();
 var url = process.env.DB_URI;
 
 // connect to mongo
-//MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
-    //console.log("Connected successfully to db server");
-
-function connectToDB () {
-  return new Promise((resolve) => {
-    const url = process.env.DB_URI
-    MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
-      if (err) console.error(err)
-      console.log('Connected successfully to db server')
-      db = client.db('myproject')
-      resolve()
-    })
-  })
-};    
+MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
+    console.log("Connected successfully to db server");
 
     // connect to myproject database
-    //db = client.db('myproject');
-//});
+    db = client.db('myproject');
+});
 
 // create user account using the collection.insertOne function
 function create(name, email, password) {
@@ -91,9 +79,3 @@ function all() {
 
 
 module.exports = { create, findOne, find, update, all };
-exports.connectToDB = connectToDB;
-module.exports = dal.js
-module.exports = {
-    connectDb,
-    
-};

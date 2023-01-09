@@ -4,7 +4,6 @@ var cors    = require('cors');
 var dal     = require('./dal.js');
 const e = require('express');
 const admin = require('./admin');
-const connectToDB = require('./dal.js');
 
 // used to serve static files from public directory
 app.use(express.static('public'));
@@ -119,14 +118,7 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-//let port = process.env.PORT || 3000;
-//app.listen(process.env.PORT || 3000);
-//console.log('Running on port: ' + port);
+let port = process.env.PORT || 3000;
+app.listen(process.env.PORT || 3000);
+console.log('Running on port: ' + port);
 
-const init = async () => {
-    await dal.connectToDB()
-    const port = process.env.PORT || 3000
-    app.listen(port)
-    console.log('Running on port: ' + port)
-  }
-  init()
