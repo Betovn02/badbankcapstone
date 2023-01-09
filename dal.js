@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 let db = null;
 require('dotenv').config();
 var url = process.env.DB_URI;
-const connectToDB = connectToDB;
+const connectToDB = null;
 // connect to mongo
 //MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
     //console.log("Connected successfully to db server");
