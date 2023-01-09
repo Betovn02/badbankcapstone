@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 //const url = 'mongodb://localhost:27017';
 let db = null;
 require('dotenv').config();
-var url = process.env.DB_URI;
+
 
 // connect to mongo
 MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
